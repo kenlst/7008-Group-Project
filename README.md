@@ -8,3 +8,4 @@ Customer survey question bank generator - upload questions and generate customiz
 - `survey_database.py` - Database operations
 - `test_database.py` - Database testing
 - `functional_oo_diagram.mmd` - System functions OO diagram
+- `simple_analysis.py` - A sample showing how to begin analysis
