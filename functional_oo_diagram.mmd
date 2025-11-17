@@ -1,97 +1,70 @@
----
-config:
-  layout: elk
----
 classDiagram
-    class Database {
-        +questions: list
-        +users: list
-        +surveys: list
-        +responses: list
-        +load_data()
-        +save_data()
+    class QuestionBankSystem {
+        +uploadQuestionBank(file)
+        +generateSurvey(requirements)
+        +analyzeResults(surveyData)
     }
+    
+    class QuestionBank {
+        -String bankId
+        -String category
+        -List~Question~ questions
+        +addQuestion(question)
+        +getQuestionsByCategory(category)
+        +getRandomQuestions(count)
+    }
+    
     class Question {
-        +id: int
-        +text: str
-        +options: list
-        +answer: str
-        +category: str
-        +difficulty: str
+        -String questionId
+        -String text
+        -String type
+        -List~String~ options
+        -String category
+        -int difficulty
     }
-    class User {
-        +user_id: int
-        +name: str
-        +email: str
+    
+    class WebCrawler {
+        -String baseURL
+        +crawlQuestions(url)
+        +parseHTML(html)
+        +saveToQuestionBank()
     }
-    class Survey {
-        +survey_id: int
-        +title: str
-        +questions: list
-        +creator: User
-        +generate_survey(requirement)
-        +display()
-    }
-    class Response {
-        +response_id: int
-        +user: User
-        +survey: Survey
-        +answers: dict
-        +submit()
-    }
-    class QuestionManager {
-        +upload_questions(data)
-        +filter_by_category(category)
-        +filter_by_difficulty(level)
-        +get_all_questions()
-    }
-    class SurveyManager {
-        +create_survey(requirement)
-        +assign_questions(questions)
-        +get_survey_by_id(id)
-    }
-    class ResponseManager {
-        +collect_response(user, survey, answers)
-        +analyze_results()
-    }
-    class UserManager {
-        +register_user(name, email)
-        +get_user_by_id(id)
-    }
-    class Crawler {
-        +fetch_web_data(url)
-        +parse_questions(html)
-        +export_to_database(db)
-    }
+    
     class TextMiningModel {
-        +analyze_question_text(question)
-        +extract_keywords()
-        +categorize_questions()
+        +categorizeQuestions(questions)
+        +extractKeywords(text)
+        +analyzeRequirements(requirements)
     }
-    class DataMiningModel {
-        +train_model(data)
-        +recommend_questions(requirement)
-        +generate_question_set()
+    
+    class SurveyGenerator {
+        -SurveyRequirement requirements
+        +generateQuestions(questionBank, requirements)
+        +selectByDifficulty(difficulty)
+        +selectByCategory(categories)
     }
-    class VisualizationManager {
-        +plot_question_distribution()
-        +show_survey_results()
-        +generate_report()
+    
+    class SurveyRequirement {
+        -int questionCount
+        -List~String~ categories
+        -int targetDifficulty
+        -String audience
     }
-    Database --> Question : stores >
-    Database --> User : stores >
-    Database --> Survey : stores >
-    Database --> Response : stores >
-    QuestionManager --> Database : reads/writes >
-    SurveyManager --> Database : reads/writes >
-    ResponseManager --> Database : reads/writes >
-    UserManager --> Database : reads/writes >
-    Crawler --> QuestionManager : uploads >
-    TextMiningModel --> QuestionManager : analyzes >
-    DataMiningModel --> QuestionManager : selects >
-    DataMiningModel --> SurveyManager : generates >
-    ResponseManager --> SurveyManager : uses >
-    VisualizationManager --> ResponseManager : visualizes >
-    SurveyManager --> User : created_by >
-    Response --> User : submitted_by >
-    Response --> Survey : belongs_to >
+    
+    class DataVisualizer {
+        +visualizeSurvey(survey)
+        +showResultsAnalysis(results)
+        +generateCharts(data)
+    }
+    
+    QuestionBankSystem --> QuestionBank : manages
+    QuestionBankSystem --> WebCrawler : uses
+    QuestionBankSystem --> TextMiningModel : uses
+    QuestionBankSystem --> SurveyGenerator : uses
+    QuestionBankSystem --> DataVisualizer : uses
+    
+    QuestionBank "1" --> "*" Question : contains
+    WebCrawler --> QuestionBank : populates
+    TextMiningModel --> Question : analyzes
+    SurveyGenerator --> QuestionBank : selects from
+    SurveyGenerator --> SurveyRequirement : follows
+    DataVisualizer --> SurveyGenerator : visualizes output
