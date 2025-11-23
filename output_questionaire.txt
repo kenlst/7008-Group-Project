@@ -1,0 +1,26 @@
+Requirements: {"title": "Test", "description": "Test", "target_audience": "All", "requirements": {"question_count": 10, "categories": ["Satisfaction", "Usage", "Recommendation"], "difficulty_range": [1.0, 5.0], "language": "en", "topic": "services", "free_text_input": "DEFAULT"}}
+
+Category: Satisfaction
+  1. [ID 415] (score=1.000, difficulty=2.0) How satisfied were you with the laundry or dry cleaning services (if used)?Asks about convenience, quality, and timeliness of garment services.
+     - options: Very Satisfied / Satisfied / Neutral / Dissatisfied / Very Dissatisfied
+  2. [ID 8] (score=0.500, difficulty=2.0) How satisfied were you with the booking process?How satisfied were you with the check-in process?How satisfied were you with the value for money of our service?What could we improve to make your experience better?How likely is it that you would recommend our travel services to a friend or colleague?Do you have any additional comments or suggestions?
+     - options: Very Satisfied / Satisfied / Neutral / Dissatisfied / Very Dissatisfied
+  3. [ID 45] (score=0.500, difficulty=2.0) How frequently do you travel for business?What is your primary mode of transportation for business travel?What factors are most important when choosing a travel agency? Select all that applyHow satisfied are you with your current travel arrangement?What challenges do you face with your current business travel arrangements?What additional services would you like a travel agency to offer? Select all that applyWhat destination do you frequently travel to for business?
+     - options: Very Satisfied / Satisfied / Neutral / Dissatisfied / Very Dissatisfied
+  4. [ID 95] (score=0.500, difficulty=2.0) Travel surveys are essential tools for understanding why and how people travel, helping organizations—from governments to businesses—improve transportation, services, and overall travel experiences. By collecting insights on preferences, habits, and motivations, these surveys inform better planning, customer satisfaction, and decision-making in the travel industry.
+  5. [ID 362] (score=0.500, difficulty=2.0) Q: What are the most important hotel survey questions to ask guests?The most impactful questions touch key stages of the guest journey:How would you rate your check-in/check-out experience?Were our amenities easily accessible and satisfactory?How was the overall cleanliness of your room and common areas?On a scale of 0–10, how likely are you to recommend us?These questions help evaluate satisfaction across services and identify improvements.
+     - options: 1-5 scale
+  6. [ID 364] (score=0.500, difficulty=2.0) The most impactful questions touch key stages of the guest journey:How would you rate your check-in/check-out experience?Were our amenities easily accessible and satisfactory?How was the overall cleanliness of your room and common areas?On a scale of 0–10, how likely are you to recommend us?These questions help evaluate satisfaction across services and identify improvements.
+     - options: 1-5 scale
+  7. [ID 409] (score=0.500, difficulty=2.0) Did you use any special services (spa, business center), and how satisfied were you with them?Evaluates quality and convenience of additional facilities.
+     - options: Very Satisfied / Satisfied / Neutral / Dissatisfied / Very Dissatisfied
+  8. [ID 487] (score=0.500, difficulty=2.0) Hotel Feedback FormatHotel Feedback Form1. Guest InformationGuest Name:Room Number:Stay Dates:2. Feedback on ServicesCheck-In/Check-Out Process:Room Cleanliness:Staff Friendliness:3. Feedback on FacilitiesQuality of Amenities:Dining Experience:Other Facilities (Pool, Gym, etc.):4. Overall SatisfactionRating (1-5):Would Recommend to Others:5. Additional CommentsRemarks:6. SignatureGuest’s Signature:Date:
+     - options: 1-5 scale
+
+Category: Recommendation
+  1. [ID 29] (score=0.000, difficulty=2.0) Use ourHotel Survey Templateto ask guests whether they would recommend your hotel to others, and use this information to shape future loyalty offers.
+     - options: 0-10 scale (NPS)
+
+Category: Usage
+  1. [ID 62] (score=0.500, difficulty=2.0) What it isA trip or vacation survey is a tool for collecting data on travel habits and preferences from your target audience, helping you to better understand their travel behaviors.
+
