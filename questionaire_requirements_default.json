@@ -1,0 +1,13 @@
+{
+  "title": "Test",
+  "description": "Test",
+  "target_audience": "All",
+  "requirements": {
+    "question_count": 10,
+    "categories": ["Satisfaction", "Usage", "Recommendation"],
+    "difficulty_range": [1.0,5.0],
+    "language": "en",
+    "topic": "services",
+    "free_text_input": "DEFAULT"
+  }
+}
